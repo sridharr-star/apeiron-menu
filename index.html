@@ -25,13 +25,17 @@ nav ul{list-style:none;margin:0;padding:0}
 .cta{background:var(--crimson);color:#fff!important;text-decoration:none;font-weight:600;padding:11px 18px;border-radius:999px;font-size:15px;white-space:nowrap}
 .panel{display:none;position:absolute;left:0;right:0;top:100%;margin-top:6px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 30px rgba(11,31,58,.12);padding:20px;z-index:5}
 .panel.open{display:block}
-.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:20px}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px}
 .col h3{margin:0 0 8px;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--crimson)}
 .col h3 small{display:block;color:var(--muted);text-transform:none;letter-spacing:0;font-weight:500;font-size:12px}
 .col ul{list-style:none;margin:0;padding:0}
 .col li{padding:5px 0;font-size:14.5px;border-bottom:1px dashed #EEF0F3}
 .col li:last-child{border-bottom:0}
 .note{font-size:12.5px;color:var(--muted)}
+.noai{display:inline-block;font-size:11px;font-weight:700;color:#fff;background:var(--navy);border-radius:999px;padding:1px 8px;margin-left:6px;vertical-align:1px;letter-spacing:.03em;text-transform:none}
+.sec{color:var(--muted)}
+.ind{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0 24px}
+.new{display:inline-block;font-size:11px;font-weight:600;color:#1E5631;background:#E2EFDA;border:1px solid #B7D7A8;border-radius:999px;padding:0 7px;margin-left:4px;vertical-align:1px;white-space:nowrap}
 .tc{display:inline-block;font-size:11px;font-weight:600;color:#8A5A00;background:var(--p2);border:1px solid #F3D98B;border-radius:999px;padding:0 7px;margin-left:4px;vertical-align:1px;white-space:nowrap}
 .all{display:inline-block;margin-top:14px;font-weight:600;color:var(--crimson);font-size:14px}
 .simple{max-width:340px}
@@ -53,7 +57,7 @@ footer.page{color:var(--muted);font-size:13px;margin:40px 0 32px}
 <body>
 <div class="wrap">
 <h1>Apeiron.sg main menu</h1>
-<p class="sub">Proposed menu for launch · based on the final site structure v1.0 (19 Nov 2026) · prepared by O3M Directional Marketing. Click a menu item to open its dropdown.</p>
+<p class="sub">Confirmed by Mr Sandeep on 23 Nov 2026 · site structure v1.1 · prepared by O3M Directional Marketing. Click a menu item to open its dropdown. Items tagged <span class="new">new</span> were added from Mr Sandeep's review.</p>
 
 <header>
   <div class="bar">
@@ -74,22 +78,25 @@ footer.page{color:var(--muted);font-size:13px;margin:40px 0 32px}
   <div class="panel" id="p-services">
     <div class="cols">
       <div class="col"><h3>1. Market Research &amp; Insights</h3><ul>
-        <li>Consumer Research</li><li>Market Research Agency</li><li>Competitor Analysis</li><li>Brand Assessment</li><li>Product Innovation Research</li><li>B2B Market Research</li><li>Custom Market Research Reports</li></ul></div>
+        <li>Consumer Research &amp; Surveys</li><li>Market Research Agency</li><li>Competitor Analysis</li><li>Brand Assessment</li><li>Product Innovation Research</li><li>B2B Market Research</li><li>Custom Market Research Reports</li></ul></div>
       <div class="col"><h3>2. Strategy, Feasibility &amp; Growth</h3><ul>
         <li>Business Expansion Strategy</li><li>ASEAN Market Entry</li><li>Business Consulting</li><li>Business Growth Strategy</li><li>Business Plan Consulting</li></ul></div>
       <div class="col"><h3>3. Ongoing Research Programmes</h3><ul>
-        <li>Customer Satisfaction &amp; Loyalty Tracking</li><li>Mystery Shopping &amp; Service Quality</li><li>Customer Experience &amp; Digital Journey Audits</li><li>Market, Competitor &amp; Reputation Monitoring</li><li>Employee &amp; Stakeholder Satisfaction Surveys</li><li>Pricing Research &amp; Willingness-to-Pay <span class="tc">to confirm</span></li><li>Campaign &amp; Post-Launch Effectiveness <span class="tc">to confirm</span></li><li>Insights Advisory Retainer <span class="tc">to confirm</span></li><li>Research-as-a-Service for SMEs <span class="tc">to confirm</span></li></ul></div>
+        <li>Customer Satisfaction &amp; Loyalty Tracking</li><li>Mystery Shopping &amp; Service Quality</li><li>Customer Experience &amp; Digital Journey Audits</li><li>Market, Competitor &amp; Reputation Monitoring</li><li>Employee &amp; Stakeholder Satisfaction Surveys</li><li>Pricing Research &amp; Willingness-to-Pay</li><li>Campaign &amp; Post-Launch Effectiveness</li><li>Insights Advisory Retainer</li><li>Research-as-a-Service for SMEs</li></ul></div>
       <div class="col"><h3>4. Government Grants &amp; Submissions</h3><ul>
-        <li>EDGE Grant Market Research</li><li>EntrePass Business Plan Writer</li><li>JTC Lease Renewal Consultant <span class="tc">to confirm</span></li><li>STB Grants <span class="note">(links to column 5)</span></li></ul></div>
-      <div class="col"><h3>5. Tourism, MICE &amp; STB</h3><ul>
-        <li>Tourism Feasibility Study</li><li>MICE Market Research</li></ul></div>
+        <li>EDGE Grant Market Research</li><li>EntrePass Business Plan Writer</li><li>JTC Lease Renewal Consultant</li><li>Other Singapore Government Grants <span class="new">new</span></li><li>STB Grants <span class="note">(links to column 5)</span></li></ul></div>
+      <div class="col"><h3>5. Tourism, MICE &amp; STB Grants</h3><ul>
+        <li>Leisure Events Fund (LEF) <span class="new">new</span></li><li>Kickstart Fund (KF) <span class="new">new</span></li><li>Experience Step-Up Fund (ESF) <span class="new">new</span></li><li>Business Events in Singapore (BEiS) <span class="new">new</span></li><li>Tourism Feasibility Study</li><li>MICE Market Research</li></ul></div>
+      <div class="col"><h3>6. Creative Brand Development <span class="noai">No AI</span></h3><ul>
+        <li>Logo Design &amp; Brand Identity <span class="new">new</span></li><li>Corporate Identity Development <span class="new">new</span></li><li>Product Packaging Design <span class="new">new</span></li><li>Marketing Collateral Design <span class="new">new</span></li><li>Flyers, Postcards &amp; Brochures <span class="new">new</span></li></ul>
+        <p class="note">100% human-designed: no AI-generated artwork.</p></div>
     </div>
     <a class="all" href="#">All Services →</a>
   </div>
 
-  <div class="panel" id="p-industries"><div class="simple col"><ul>
-    <li>Retail</li><li>FMCG</li><li>HORECA</li><li>Education</li><li>Tourism</li><li>Healthcare &amp; Pharmaceutical <span class="tc">to confirm</span></li><li>Real Estate <span class="tc">to confirm</span></li><li>Manufacturing &amp; Engineering <span class="tc">to confirm</span></li><li>Banking &amp; Finance <span class="tc">to confirm</span></li><li>Logistics <span class="tc">to confirm</span></li></ul>
-    <a class="all" href="#">All Industries →</a><p class="note">The Industries page lists all 24 industries Apeiron serves.</p></div></div>
+  <div class="panel" id="p-industries"><div class="col">
+    <ul class="ind"><li>Retail</li><li>FMCG</li><li>HORECA</li><li>Education</li><li>Tourism</li><li>Healthcare &amp; Pharmaceutical</li><li>Real Estate</li><li>Manufacturing &amp; Engineering</li><li>Banking &amp; Finance</li><li>Logistics</li><li class="sec">Import &amp; Export</li><li class="sec">HR &amp; Recruitment Services</li><li class="sec">IT Services</li><li class="sec">Fashion &amp; Clothing</li><li class="sec">Telecommunications &amp; Internet Providers</li><li class="sec">Automobile</li><li class="sec">Aerospace</li><li class="sec">Electronics</li><li class="sec">Farming (Hydroponics &amp; Aeroponics)</li><li class="sec">Gaming</li><li class="sec">Construction Materials</li><li class="sec">Marinetech</li><li class="sec">Sports</li><li class="sec">Business Services</li></ul>
+    <a class="all" href="#">All Industries →</a><p class="note">Black: own industry page. Grey: opens that industry's section on the Industries page (can become a full page later).</p></div></div>
 
   <div class="panel" id="p-insights"><div class="simple col"><ul>
     <li>Consumer Trends</li><li>Feasibility</li><li>Business Consulting</li><li>Market Research Guides</li><li>Grants &amp; Government</li><li>Tourism &amp; MICE</li></ul>
@@ -108,32 +115,29 @@ footer.page{color:var(--muted);font-size:13px;margin:40px 0 32px}
 <div class="tw"><table>
 <thead><tr><th>Menu item</th><th>Column / dropdown</th><th>Pages</th></tr></thead>
 <tbody>
-<tr><td class="mi" rowspan="6">Services<br><span class="note">5-column mega menu</span></td><td>1. Market Research &amp; Insights</td><td>Consumer Research · Market Research Agency · Competitor Analysis · Brand Assessment · Product Innovation Research · B2B Market Research · Custom Market Research Reports</td></tr>
+<tr><td class="mi" rowspan="7">Services<br><span class="note">6-column mega menu</span></td><td>1. Market Research &amp; Insights</td><td>Consumer Research &amp; Surveys · Market Research Agency · Competitor Analysis · Brand Assessment · Product Innovation Research · B2B Market Research · Custom Market Research Reports</td></tr>
 <tr><td>2. Strategy, Feasibility &amp; Growth</td><td>Business Expansion Strategy · ASEAN Market Entry · Business Consulting · Business Growth Strategy · Business Plan Consulting</td></tr>
-<tr><td>3. Ongoing Research Programmes</td><td>Customer Satisfaction &amp; Loyalty Tracking · Mystery Shopping &amp; Service Quality · Customer Experience &amp; Digital Journey Audits · Market, Competitor &amp; Reputation Monitoring · Employee &amp; Stakeholder Satisfaction Surveys · Pricing Research &amp; Willingness-to-Pay <span class="tc">to confirm</span> · Campaign &amp; Post-Launch Effectiveness <span class="tc">to confirm</span> · Insights Advisory Retainer <span class="tc">to confirm</span> · Research-as-a-Service for SMEs <span class="tc">to confirm</span></td></tr>
-<tr><td>4. Government Grants &amp; Submissions</td><td>EDGE Grant Market Research · EntrePass Business Plan Writer · JTC Lease Renewal Consultant <span class="tc">to confirm</span> · STB Grants (links to column 5)</td></tr>
-<tr><td>5. Tourism, MICE &amp; STB</td><td>Tourism Feasibility Study · MICE Market Research</td></tr>
+<tr><td>3. Ongoing Research Programmes</td><td>Customer Satisfaction &amp; Loyalty Tracking · Mystery Shopping &amp; Service Quality · Customer Experience &amp; Digital Journey Audits · Market, Competitor &amp; Reputation Monitoring · Employee &amp; Stakeholder Satisfaction Surveys · Pricing Research &amp; Willingness-to-Pay · Campaign &amp; Post-Launch Effectiveness · Insights Advisory Retainer · Research-as-a-Service for SMEs</td></tr>
+<tr><td>4. Government Grants &amp; Submissions</td><td>EDGE Grant Market Research · EntrePass Business Plan Writer · JTC Lease Renewal Consultant · Other Singapore Government Grants <span class="new">new</span> · STB Grants (links to column 5)</td></tr>
+<tr><td>5. Tourism, MICE &amp; STB Grants</td><td>Leisure Events Fund (LEF) <span class="new">new</span> · Kickstart Fund (KF) <span class="new">new</span> · Experience Step-Up Fund (ESF) <span class="new">new</span> · Business Events in Singapore (BEiS) <span class="new">new</span> · Tourism Feasibility Study · MICE Market Research</td></tr>
+<tr><td>6. Creative Brand Development <span class="noai">No AI</span></td><td>Logo Design &amp; Brand Identity · Corporate Identity Development · Product Packaging Design · Marketing Collateral Design · Flyers, Postcards &amp; Brochures <span class="new">new</span> (all 100% human-designed)</td></tr>
 <tr><td>Bottom of menu</td><td>All Services →</td></tr>
-<tr><td class="mi">Industries</td><td>Dropdown</td><td>Retail · FMCG · HORECA · Education · Tourism · Healthcare &amp; Pharmaceutical <span class="tc">to confirm</span> · Real Estate <span class="tc">to confirm</span> · Manufacturing &amp; Engineering <span class="tc">to confirm</span> · Banking &amp; Finance <span class="tc">to confirm</span> · Logistics <span class="tc">to confirm</span> · All Industries → (hub lists all 24 industries)</td></tr>
-<tr><td class="mi">Case Studies</td><td>No dropdown</td><td>Case Studies page (new case studies from Apeiron)</td></tr>
+<tr><td class="mi">Industries</td><td>Dropdown (all 24)</td><td><b>Own page:</b> Retail · FMCG · HORECA · Education · Tourism · Healthcare &amp; Pharmaceutical · Real Estate · Manufacturing &amp; Engineering · Banking &amp; Finance · Logistics<br><b>Section on the Industries page:</b> Import &amp; Export · HR &amp; Recruitment Services · IT Services · Fashion &amp; Clothing · Telecommunications &amp; Internet Providers · Automobile · Aerospace · Electronics · Farming (Hydroponics &amp; Aeroponics) · Gaming · Construction Materials · Marinetech · Sports · Business Services</td></tr>
+<tr><td class="mi">Case Studies</td><td>No dropdown</td><td>Case Studies page (new case studies from Mr Sandeep)</td></tr>
 <tr><td class="mi">Insights</td><td>Dropdown</td><td>Consumer Trends · Feasibility · Business Consulting · Market Research Guides · Grants &amp; Government · Tourism &amp; MICE</td></tr>
 <tr><td class="mi">Locations</td><td>Dropdown</td><td>Singapore (head office) · Dubai, UAE (Market Research in Dubai page)</td></tr>
 <tr><td class="mi">About</td><td>Dropdown</td><td>Company History · Why Choose Us · Research &amp; Analytics Team · Careers</td></tr>
 <tr><td class="mi">Request a Proposal</td><td>Button</td><td>Contact Us page (enquiry form)</td></tr>
-<tr><td class="mi">Footer</td><td>Every page</td><td>5 service groups · Industries · Locations (Singapore, Dubai) · Company (About, Careers, Contact) · FAQ · Privacy Policy</td></tr>
+<tr><td class="mi">Footer</td><td>Every page</td><td>6 service groups · Industries · Locations (Singapore, Dubai) · Company (About, Careers, Contact) · FAQ · Privacy Policy</td></tr>
 </tbody></table></div>
 
-<h2>For Mr Sandeep to confirm</h2>
-<p>Items marked <span class="tc">to confirm</span> are included so you can see the full menu. Please tell us which to keep and which to remove.</p>
+<h2>Still needed from Apeiron</h2>
 <ol>
-<li><b>Services not in Apeiron's 17-service list:</b> Pricing Research &amp; Willingness-to-Pay · Campaign &amp; Post-Launch Effectiveness · Insights Advisory Retainer · Research-as-a-Service for SMEs. Does Apeiron offer these?</li>
-<li><b>JTC Lease Renewal Consultant:</b> keep it in the menu?</li>
-<li><b>Industry pages:</b> Healthcare &amp; Pharmaceutical · Real Estate · Manufacturing &amp; Engineering · Banking &amp; Finance · Logistics. Keep all five as menu items? The Industries page will still list all 24 industries.</li>
-<li>The 5 service groups and their names.</li>
-<li><b>Locations:</b> Dubai is shown in the main menu under Locations (and in the footer). Keep it in the main menu? Will Dubai have a UAE phone number or address?</li>
-<li>Service names shortened from Apeiron's 17-service list (e.g. "Mystery Shopping &amp; Service Quality").</li>
+<li>New case studies (Mr Sandeep will share them as a document).</li>
+<li>Design samples for each Creative Brand Development page.</li>
+<li>Dubai: a UAE phone number or address, if available.</li>
 </ol>
-<footer class="page">O3M Directional Marketing · Apeiron.sg redesign · menu v1.0</footer>
+<footer class="page">O3M Directional Marketing · Apeiron.sg redesign · menu v1.1 (confirmed 23 Nov 2026)</footer>
 </div>
 <script>
 document.querySelectorAll('[data-panel]').forEach(function(btn){
