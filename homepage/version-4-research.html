@@ -220,6 +220,23 @@ footer .legal{border-top:1px solid #2A2E35;padding-block:16px 28px;display:flex;
   .stamp{right:6px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+/* Hero photo banner (added 23 Nov) */
+.banner{position:relative;color:#fff;background:#121417 url(../assets/hero-placeholder.svg) center/cover no-repeat;min-height:600px;display:flex;align-items:center;overflow:hidden}
+.banner::before{content:"";position:absolute;inset:0;background:rgba(18,20,23,.5)}
+.banner .wrap{position:relative;width:100%;padding-block:72px}
+.banner .bcopy{max-width:640px}
+.banner .eyebrow{color:#FF8FA0}
+.banner h1{font-size:clamp(36px,5.2vw,64px);line-height:1.02;font-weight:800;color:#fff;margin:0}
+.banner .mark{color:var(--hl);background:linear-gradient(transparent 88%,var(--hl) 88%,var(--hl) 96%,transparent 96%)}
+.banner .lead{font-size:18.5px;color:#E6E8EB;max-width:540px;margin:22px 0 26px}
+.banner .btn-o{border-color:#fff;color:#fff}
+.banner .meta{display:flex;gap:18px;flex-wrap:wrap;font:13px var(--mono);color:#B9BEC6}
+.banner .meta b{color:#fff;font-weight:500}
+.bnote{position:absolute;right:16px;bottom:12px;font:11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:#9AA0A9;background:rgba(18,20,23,.7);padding:4px 8px;border-radius:3px}
+.hero .sq{font-size:clamp(28px,3.4vw,42px);line-height:1.08;font-weight:800;margin:0}
+.hero .talk{font-size:15px}.hero .talk a{color:var(--crimson);font-weight:600}
+@media (max-width:600px){.banner{min-height:520px}.bnote{left:16px;right:auto}}
 </style>
 </head>
 <body>
@@ -263,14 +280,25 @@ footer .legal{border-top:1px solid #2A2E35;padding-block:16px 28px;display:flex;
 </header>
 
 <main>
-<section class="hero">
+<section class="banner" aria-label="Hero banner">
   <div class="wrap">
-    <div>
+    <div class="bcopy">
       <p class="eyebrow">Market research company · Singapore · Dubai · ASEAN</p>
       <h1>Every good decision starts with <span class="mark">the right question.</span></h1>
       <p class="lead">Apeiron designs the surveys, fieldwork and analysis that tell you whether to launch, expand or invest, and supports the grant applications that fund it.</p>
       <div class="btns"><a class="cta" href="#enquiry">Request a Proposal</a><a class="btn-o" href="#">WhatsApp us</a></div>
       <div class="meta"><span><b>15+</b> years of fieldwork</span><span><b>6</b> service areas</span><span><b>24</b> industries</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Not sure where to start?</p>
+      <h2 class="sq">Answer one question. We point you to the right service.</h2>
+      <p class="lead">Most projects start with a decision: launch, expand, apply for a grant or track performance. Pick yours and see which service fits.</p>
+      <p class="talk">Prefer to talk? <a href="#enquiry">Request a proposal →</a></p>
     </div>
 
     <div class="qcard" id="quiz">

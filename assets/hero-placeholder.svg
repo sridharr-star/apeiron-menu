@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 760" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#2A2E35" stroke-width="1"/></pattern>
+    <linearGradient id="fade" x1="0" x2="1"><stop offset="0" stop-color="#121417" stop-opacity="1"/><stop offset=".55" stop-color="#121417" stop-opacity=".55"/><stop offset="1" stop-color="#121417" stop-opacity=".15"/></linearGradient>
+  </defs>
+  <rect width="1920" height="760" fill="#1A1D22"/>
+  <rect width="1920" height="760" fill="url(#g)"/>
+  <g fill="#0E7C7B" opacity=".9">
+    <rect x="1080" y="420" width="46" height="240"/><rect x="1150" y="360" width="46" height="300"/><rect x="1220" y="470" width="46" height="190"/>
+    <rect x="1290" y="300" width="46" height="360"/><rect x="1360" y="390" width="46" height="270"/><rect x="1430" y="250" width="46" height="410"/>
+    <rect x="1500" y="330" width="46" height="330"/><rect x="1570" y="200" width="46" height="460"/><rect x="1640" y="280" width="46" height="380"/><rect x="1710" y="160" width="46" height="500"/>
+  </g>
+  <polyline points="1060,520 1150,450 1240,500 1330,380 1420,420 1510,300 1600,330 1690,210 1780,170 1880,120" fill="none" stroke="#FFE45C" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <g fill="#B01030"><circle cx="1690" cy="210" r="10"/><circle cx="1880" cy="120" r="12"/></g>
+  <rect width="1920" height="760" fill="url(#fade)"/>
+  <text x="960" y="730" text-anchor="middle" font-family="monospace" font-size="20" fill="#6B717B">HERO BANNER · REPLACE WITH APEIRON PHOTO (1920 × 760)</text>
+</svg>
