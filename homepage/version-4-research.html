@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Apeiron Research Concept</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap">
+<style>
+/* Layout concept: the homepage as a research instrument — questionnaire hero, key findings, report-style index, field tallies, coverage heatmap, survey-form enquiry */
+:root{
+  --paper:#FAFAF8; --paper-2:#F1F2EE; --ink:#121417; --ink-2:#3B4048; --muted:#6B717B;
+  --crimson:#B01030; --crimson-dk:#8C0C26; --teal:#0E7C7B; --hl:#FFE45C; --line:#E3E5E1; --grid:#ECEDEA;
+  --display:'Archivo',system-ui,sans-serif; --body:'Inter',system-ui,sans-serif; --mono:'IBM Plex Mono',ui-monospace,monospace; --hand:'Caveat',cursive;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+a{color:inherit}
+img{max-width:100%}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--mono)}
+.eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--crimson)}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.02em;text-wrap:balance;margin:0}
+h2{font-size:clamp(28px,3.4vw,42px);line-height:1.08;font-weight:800}
+:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.mark{background:linear-gradient(transparent 58%,var(--hl) 58%,var(--hl) 92%,transparent 92%);padding:0 .08em}
+
+/* review bar + header */
+.review{background:var(--ink);color:#E9EAEC;font-size:13.5px}
+.review .wrap{display:flex;gap:16px;flex-wrap:wrap;align-items:center;padding-block:8px}
+.review a{color:#FFB3A3}
+header.site{position:sticky;top:0;z-index:20;background:rgba(250,250,248,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px;flex-wrap:wrap}
+.logo img{height:46px;width:auto;display:block}
+.nav{display:flex;gap:2px;flex-wrap:wrap;list-style:none;margin:0;padding:0}
+.nav button,.nav a{display:inline-block;line-height:1.4;font:600 15px/1.4 var(--body);color:var(--ink);background:none;border:0;padding:9px 11px;border-radius:6px;cursor:pointer;text-decoration:none}
+.nav button:hover,.nav button[aria-expanded=true],.nav a:hover{background:var(--paper-2);color:var(--crimson)}
+.cta{background:var(--crimson);color:#fff;text-decoration:none;font-weight:600;padding:11px 18px;border-radius:6px;white-space:nowrap}
+.cta:hover{background:var(--crimson-dk)}
+.panel{display:none;position:absolute;left:0;right:0;top:100%;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 18px 40px rgba(18,20,23,.10)}
+.panel.open{display:block}
+.panel .wrap{padding-block:22px}
+.mcols{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:18px}
+.mcols h4{margin:0 0 8px;font:700 13px/1.3 var(--display);color:var(--crimson)}
+.mcols ul,.plist{list-style:none;margin:0;padding:0}
+.mcols li,.plist li{font-size:14px;padding:5px 0;border-bottom:1px dashed var(--line);line-height:1.35}
+.tag{display:inline-block;font:600 10.5px var(--mono);letter-spacing:.04em;background:var(--ink);color:#fff;border-radius:3px;padding:1px 5px;vertical-align:1px}
+.icols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 22px}
+.icols li.sec{color:var(--muted)}
+.pcols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;max-width:760px}
+.pfoot{margin-top:14px;font-size:13px;color:var(--muted)}
+.pfoot a{color:var(--crimson);font-weight:600}
+
+/* hero */
+.hero{position:relative;border-bottom:1px solid var(--line);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:28px 28px;background-position:-1px -1px}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding-block:64px 72px}
+.hero h1{font-size:clamp(36px,5.2vw,64px);line-height:1.02;font-weight:800}
+.hero .lead{font-size:18.5px;color:var(--ink-2);max-width:540px;margin:22px 0 26px}
+.hero .meta{display:flex;gap:18px;flex-wrap:wrap;font:13px var(--mono);color:var(--muted)}
+.hero .meta b{color:var(--ink);font-weight:500}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.btn-o{border:1.5px solid var(--ink);color:var(--ink);text-decoration:none;font-weight:600;padding:10px 18px;border-radius:6px}
+
+/* questionnaire card */
+.qcard{background:#fff;border:1px solid #D9DBD6;border-radius:4px;box-shadow:8px 8px 0 var(--ink);position:relative}
+.qhead{display:flex;justify-content:space-between;gap:12px;padding:12px 18px;border-bottom:1px solid var(--line);font:12px var(--mono);color:var(--muted);flex-wrap:wrap}
+.qbody{padding:20px 22px 22px}
+.qnum{font:500 13px var(--mono);color:var(--crimson)}
+.qtext{font:800 23px/1.2 var(--display);margin:4px 0 4px}
+.qhint{font-size:13.5px;color:var(--muted);margin:0 0 14px}
+.opt{display:flex;gap:12px;align-items:flex-start;padding:10px 12px;border:1px solid var(--line);border-radius:4px;margin-bottom:8px;cursor:pointer;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--ink)}
+.opt input{accent-color:var(--crimson);margin-top:4px;flex:none}
+.opt .o1{font-weight:600;font-size:15px}
+.opt .o2{font-size:13px;color:var(--muted)}
+.opt.sel{border-color:var(--crimson);background:#FFF5F6}
+.result{margin-top:14px;padding:14px;border-radius:4px;background:var(--ink);color:#fff;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.result .r1{font:12px var(--mono);color:#B9BEC6}
+.result .r2{font:700 17px var(--display)}
+.result a{background:var(--crimson);color:#fff;text-decoration:none;font-weight:600;padding:9px 14px;border-radius:5px;white-space:nowrap}
+.stamp{position:absolute;right:-14px;top:-18px;transform:rotate(8deg);font:700 12px var(--mono);letter-spacing:.06em;color:var(--crimson);border:2px solid var(--crimson);padding:5px 9px;border-radius:4px;background:rgba(255,255,255,.9)}
+
+/* findings */
+.findings{background:var(--ink);color:#fff}
+.findings .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
+.f{padding:30px 22px;border-left:1px solid #2A2E35}
+.f:first-child{border-left:0;padding-left:0}
+.f .k{font:12px var(--mono);color:#FF8FA0}
+.f .v{font:800 40px/1 var(--display);margin:10px 0 8px;font-variant-numeric:tabular-nums}
+.f .d{font-size:14px;color:#C4C8CF}
+
+/* sections */
+section.s{padding-block:84px}
+.shead{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:34px}
+.shead p{margin:10px 0 0;color:var(--ink-2);max-width:560px}
+.link{color:var(--crimson);font-weight:600;text-decoration:none}
+
+/* services as report index */
+.index{border-top:2px solid var(--ink)}
+.row{display:grid;grid-template-columns:70px minmax(0,1.3fr) minmax(0,2fr) 140px 28px;gap:20px;align-items:center;padding:20px 0;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink);position:relative}
+.row:hover{background:linear-gradient(90deg,transparent,#FFF5F6 15%,#FFF5F6 85%,transparent)}
+.row .code{font:500 14px var(--mono);color:var(--crimson)}
+.row h3{font-size:22px;font-weight:700;line-height:1.15}
+.row .desc{font-size:14.5px;color:var(--ink-2)}
+.row .bars{display:flex;gap:3px;align-items:flex-end;height:26px}
+.row .bars i{display:block;width:9px;background:var(--teal);border-radius:1px}
+.row .cnt{font:12px var(--mono);color:var(--muted);margin-top:4px}
+.row .arr{font-size:20px;color:var(--crimson)}
+.noai{display:inline-block;margin-left:10px;font:700 11px var(--mono);letter-spacing:.06em;color:var(--crimson);border:1.5px solid var(--crimson);border-radius:3px;padding:2px 6px;transform:rotate(-3deg);vertical-align:3px}
+
+/* field notes / tallies */
+.field{background:var(--paper-2);border-block:1px solid var(--line)}
+.field .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+.notepad{background:#fff;border:1px solid #D9DBD6;border-radius:4px;padding:8px 24px 18px;
+  background-image:linear-gradient(transparent 39px,#E8EEF6 40px);background-size:100% 40px}
+.tal{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:center;height:40px}
+.tal .ev{font-size:15px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tal svg{height:26px;width:auto}
+.tal .w{font:11.5px var(--mono);color:var(--muted)}
+.hand{font-family:var(--hand);font-size:22px;color:var(--crimson);margin:14px 0 0}
+
+/* heatmap */
+.heat{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px}
+.cell{aspect-ratio:1.6/1;border-radius:3px;padding:10px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;font-size:13.5px;line-height:1.2;font-weight:600;max-width:100%}
+.cell .n{font:11px var(--mono);opacity:.75;font-weight:400}
+.c1{background:var(--crimson);color:#fff}
+.c1:hover{background:var(--crimson-dk)}
+.c2{background:#F6D9DE;color:#5A0A1A}
+.c2:hover{background:#F0C3CB}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font:12.5px var(--mono);color:var(--muted)}
+.legend span::before{content:"";display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+
+/* methodology */
+.method{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;counter-reset:m;position:relative}
+.method::before{content:"";position:absolute;left:0;right:0;top:15px;border-top:2px dashed #C9CCC6}
+.m{position:relative;padding-right:18px}
+.m .dot{width:32px;height:32px;border-radius:50%;background:var(--paper);border:2px solid var(--ink);display:grid;place-items:center;font:500 12px var(--mono);position:relative}
+.m:last-child .dot{background:var(--crimson);border-color:var(--crimson);color:#fff}
+.m h3{font-size:18px;margin:16px 0 6px}
+.m p{margin:0;font-size:14px;color:var(--ink-2)}
+.m .an{font:12px var(--mono);color:var(--teal);margin-top:8px}
+
+/* creative */
+.creative{background:var(--ink);color:#fff;overflow:hidden}
+.creative .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.creative h2 .sq{position:relative;white-space:nowrap}
+.creative h2 .sq svg{position:absolute;left:0;bottom:-10px;width:100%;height:14px}
+.creative p{color:#C4C8CF;font-size:17px;max-width:560px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 26px}
+.chips span{border:1px solid #3A3F47;border-radius:999px;padding:7px 13px;font-size:14px}
+.sketch{border:1px dashed #4A505A;border-radius:6px;aspect-ratio:4/3;display:grid;place-items:center;position:relative;max-width:100%}
+.sketch svg{width:78%;height:auto}
+.sketch .cap{position:absolute;left:14px;bottom:10px;font:12px var(--mono);color:#8D939C}
+.badge{display:inline-block;font:700 12px var(--mono);letter-spacing:.08em;background:var(--hl);color:var(--ink);padding:5px 10px;border-radius:3px;margin-bottom:16px}
+
+/* verbatim + reports */
+.verb{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+.quote{border-left:4px solid var(--crimson);padding-left:22px}
+.quote p{font:600 24px/1.35 var(--display);margin:8px 0 12px}
+.quote .who{font:13px var(--mono);color:var(--muted)}
+.reports{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.rep{border:1px solid var(--line);background:#fff;border-radius:4px;padding:18px;text-decoration:none;display:flex;flex-direction:column;gap:12px;min-height:220px}
+.rep .vol{display:flex;justify-content:space-between;font:11.5px var(--mono);color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:8px}
+.rep h3{font-size:18px;line-height:1.25;flex:1}
+.rep .cat{font:12px var(--mono);color:var(--crimson)}
+
+/* locations */
+.locs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.loc{border:1px solid var(--line);border-radius:4px;padding:22px;background:#fff;display:flex;justify-content:space-between;gap:16px;align-items:flex-end;text-decoration:none}
+.loc h3{font-size:26px}
+.loc .co{font:12.5px var(--mono);color:var(--muted);margin-top:6px}
+
+/* survey form */
+.enq{background:var(--paper-2);border-top:1px solid var(--line)}
+.enq .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start}
+.form{background:#fff;border:1px solid #D9DBD6;border-radius:4px;box-shadow:8px 8px 0 var(--crimson)}
+.prog{height:6px;background:var(--line)}
+.prog i{display:block;height:100%;width:0;background:var(--teal);transition:width .3s}
+.form .in{padding:22px 24px 24px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.fq{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600}
+.fq .q{font:500 12px var(--mono);color:var(--crimson)}
+.fq input,.fq select,.fq textarea{font:inherit;font-weight:400;padding:11px;border:1px solid #CFD2CC;border-radius:4px;background:var(--paper)}
+.full{grid-column:1/-1}
+.submit{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.submit button{background:var(--crimson);color:#fff;border:0;font:600 16px var(--body);padding:13px 22px;border-radius:5px;cursor:pointer}
+.submit .t{font:12px var(--mono);color:var(--muted)}
+.thanks{display:none;grid-column:1/-1;background:#EAF5F4;border:1px solid #BFE0DD;color:#0B5C5B;padding:14px;border-radius:4px;font-weight:600}
+.contact p{margin:6px 0;font-size:15px}
+
+/* footer */
+footer.site{background:var(--ink);color:#C4C8CF;font-size:14px}
+footer .cols{display:grid;grid-template-columns:1.3fr repeat(4,minmax(0,1fr));gap:28px;padding-block:56px 30px}
+footer h4{color:#fff;margin:0 0 10px;font:700 14px var(--display)}
+footer ul{list-style:none;margin:0;padding:0;line-height:2}
+footer a{text-decoration:none}
+footer a:hover{color:#fff}
+footer .legal{border-top:1px solid #2A2E35;padding-block:16px 28px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font:12.5px var(--mono)}
+
+@media (max-width:980px){
+  .hero .wrap,.field .wrap,.creative .wrap,.verb,.enq .wrap{grid-template-columns:1fr}
+  .findings .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .f:nth-child(3){border-left:0;padding-left:0}
+  .row{grid-template-columns:54px minmax(0,1fr) 28px}
+  .row .desc,.row .vis{display:none}
+  .heat{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .method{grid-template-columns:1fr;gap:22px}.method::before{display:none}
+  .reports{grid-template-columns:1fr}
+  .mcols{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .icols{grid-template-columns:repeat(2,minmax(0,1fr))}
+  footer .cols{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .panel{position:static;box-shadow:none}
+}
+@media (max-width:560px){
+  .locs{grid-template-columns:1fr}
+  .form .in{grid-template-columns:1fr}
+  .findings .wrap{grid-template-columns:1fr}.f{border-left:0;padding-left:0;border-top:1px solid #2A2E35}
+  .stamp{right:6px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<div class="review"><div class="wrap"><b>Apeiron.sg homepage design: Version 4 — Research concept</b><a href="./">All versions</a><span>Design preview for review · links are placeholders</span></div></div>
+
+<header class="site">
+  <div class="wrap bar">
+    <a class="logo" href="#"><img src="../assets/apeiron-logo-light-bg.png" alt="Apeiron Market Research &amp; Consulting"></a>
+    <nav aria-label="Main"><ul class="nav">
+      <li><button type="button" aria-expanded="false" data-panel="p-services">Services ▾</button></li>
+      <li><button type="button" aria-expanded="false" data-panel="p-industries">Industries ▾</button></li>
+      <li><a href="#cases">Case Studies</a></li>
+      <li><button type="button" aria-expanded="false" data-panel="p-insights">Insights ▾</button></li>
+      <li><button type="button" aria-expanded="false" data-panel="p-locations">Locations ▾</button></li>
+      <li><button type="button" aria-expanded="false" data-panel="p-about">About ▾</button></li>
+    </ul></nav>
+    <a class="cta" href="#enquiry">Request a Proposal</a>
+  </div>
+
+  <div class="panel" id="p-services"><div class="wrap">
+    <div class="mcols">
+      <div><h4>Market Research &amp; Insights</h4><ul><li>Consumer Research &amp; Surveys</li><li>Market Research Agency</li><li>Competitor Analysis</li><li>Brand Assessment</li><li>Product Innovation Research</li><li>B2B Market Research</li><li>Custom Market Research Reports</li></ul></div>
+      <div><h4>Strategy, Feasibility &amp; Growth</h4><ul><li>Business Expansion Strategy</li><li>ASEAN Market Entry</li><li>Business Consulting</li><li>Business Growth Strategy</li><li>Business Plan Consulting</li></ul></div>
+      <div><h4>Ongoing Research Programmes</h4><ul><li>Customer Satisfaction &amp; Loyalty Tracking</li><li>Mystery Shopping &amp; Service Quality</li><li>Customer Experience &amp; Digital Journey Audits</li><li>Market, Competitor &amp; Reputation Monitoring</li><li>Employee &amp; Stakeholder Satisfaction Surveys</li><li>Pricing Research &amp; Willingness-to-Pay</li><li>Campaign &amp; Post-Launch Effectiveness</li><li>Insights Advisory Retainer</li><li>Research-as-a-Service for SMEs</li></ul></div>
+      <div><h4>Government Grants &amp; Submissions</h4><ul><li>EDGE Grant Market Research</li><li>EntrePass Business Plan Writer</li><li>JTC Lease Renewal Consultant</li><li>Other Singapore Government Grants</li><li>STB Grants →</li></ul></div>
+      <div><h4>Tourism, MICE &amp; STB Grants</h4><ul><li>Leisure Events Fund (LEF)</li><li>Kickstart Fund (KF)</li><li>Experience Step-Up Fund (ESF)</li><li>Business Events in Singapore (BEiS)</li><li>Tourism Feasibility Study</li><li>MICE Market Research</li></ul></div>
+      <div><h4>Creative Brand Development <span class="tag">NO AI</span></h4><ul><li>Logo Design &amp; Brand Identity</li><li>Corporate Identity Development</li><li>Product Packaging Design</li><li>Marketing Collateral Design</li><li>Flyers, Postcards &amp; Brochures</li></ul></div>
+    </div>
+    <p class="pfoot"><a href="#services">All services →</a></p>
+  </div></div>
+
+  <div class="panel" id="p-industries"><div class="wrap">
+    <ul class="plist icols" id="ind-menu"></ul>
+    <p class="pfoot">Dark: own industry page. Grey: section on the Industries page. <a href="#industries">All industries →</a></p>
+  </div></div>
+
+  <div class="panel" id="p-insights"><div class="wrap"><ul class="plist" style="max-width:300px"><li>Consumer Trends</li><li>Feasibility</li><li>Business Consulting</li><li>Market Research Guides</li><li>Grants &amp; Government</li><li>Tourism &amp; MICE</li></ul><p class="pfoot"><a href="#reports">All insights →</a></p></div></div>
+  <div class="panel" id="p-locations"><div class="wrap"><ul class="plist" style="max-width:300px"><li>Singapore (head office)</li><li>Dubai, UAE</li></ul></div></div>
+  <div class="panel" id="p-about"><div class="wrap"><ul class="plist" style="max-width:300px"><li>Company History</li><li>Why Choose Us</li><li>Research &amp; Analytics Team</li><li>Careers</li></ul></div></div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Market research company · Singapore · Dubai · ASEAN</p>
+      <h1>Every good decision starts with <span class="mark">the right question.</span></h1>
+      <p class="lead">Apeiron designs the surveys, fieldwork and analysis that tell you whether to launch, expand or invest, and supports the grant applications that fund it.</p>
+      <div class="btns"><a class="cta" href="#enquiry">Request a Proposal</a><a class="btn-o" href="#">WhatsApp us</a></div>
+      <div class="meta"><span><b>15+</b> years of fieldwork</span><span><b>6</b> service areas</span><span><b>24</b> industries</span></div>
+    </div>
+
+    <div class="qcard" id="quiz">
+      <span class="stamp">10-SECOND SURVEY</span>
+      <div class="qhead"><span>APEIRON · SCREENER Q1</span><span>Respondent: you</span></div>
+      <div class="qbody">
+        <div class="qnum">Q1 of 1</div>
+        <p class="qtext">What decision are you facing?</p>
+        <p class="qhint">Select one. We'll point you to the right service.</p>
+        <div id="opts"></div>
+        <div class="result" id="result" aria-live="polite">
+          <div><div class="r1">RECOMMENDED SERVICE</div><div class="r2" id="rname">Feasibility Study</div></div>
+          <a id="rlink" href="#enquiry">See how it works →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="findings" aria-label="Key findings">
+  <div class="wrap">
+    <div class="f"><div class="k">FINDING 01</div><div class="v" data-count="15" data-suffix="+">15+</div><div class="d">years designing and running market research</div></div>
+    <div class="f"><div class="k">FINDING 02</div><div class="v">STB</div><div class="d">research partner to the Singapore Tourism Board on national events</div></div>
+    <div class="f"><div class="k">FINDING 03</div><div class="v" data-count="24">24</div><div class="d">industries covered, from retail to marinetech</div></div>
+    <div class="f"><div class="k">FINDING 04</div><div class="v">SG · UAE</div><div class="d">Singapore head office, serving Dubai and ASEAN</div></div>
+  </div>
+</section>
+
+<section class="s" id="services">
+  <div class="wrap">
+    <div class="shead">
+      <div><p class="eyebrow">Contents</p><h2>Market research, consulting and creative services</h2><p>Six service areas. Pick a chapter, or let the screener above choose for you.</p></div>
+      <a class="link" href="#">All services →</a>
+    </div>
+    <div class="index" id="index"></div>
+  </div>
+</section>
+
+<section class="s field" id="cases">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Field notes · Case studies</p>
+      <h2>We count what others estimate.</h2>
+      <p style="color:var(--ink-2);margin:16px 0 22px;max-width:480px">Footfall counts, visitor surveys and real-time reporting for the Singapore Tourism Board's national events. Tally marks are how our field teams count footfall, one visitor at a time.</p>
+      <a class="link" href="#">Read the case studies →</a>
+      <p class="hand">↳ new case studies coming from Apeiron</p>
+    </div>
+    <div class="notepad" id="notepad" aria-label="Events studied"></div>
+  </div>
+</section>
+
+<section class="s" id="industries">
+  <div class="wrap">
+    <div class="shead">
+      <div><p class="eyebrow">Coverage map</p><h2>Market research by industry</h2><p>Every industry Apeiron researches. Darker cells have their own page.</p></div>
+      <a class="link" href="#">All industries →</a>
+    </div>
+    <div class="heat" id="heat"></div>
+    <div class="legend"><span style="--c:var(--crimson)">Dedicated industry page</span><span style="--c:#F6D9DE">Covered on the Industries page</span></div>
+  </div>
+</section>
+
+<section class="s" style="padding-top:0">
+  <div class="wrap">
+    <div class="shead"><div><p class="eyebrow">Methodology</p><h2>How a study runs</h2></div></div>
+    <div class="method">
+      <div class="m"><div class="dot">01</div><h3>Brief</h3><p>We agree the decision your research must support.</p><div class="an">output: research objectives</div></div>
+      <div class="m"><div class="dot">02</div><h3>Design</h3><p>Questionnaire, sample and method, quant, qual or both.</p><div class="an">output: questionnaire + sample plan</div></div>
+      <div class="m"><div class="dot">03</div><h3>Fieldwork</h3><p>Surveys, interviews, CAPI and footfall counts on the ground.</p><div class="an">output: clean data</div></div>
+      <div class="m"><div class="dot">04</div><h3>Analysis</h3><p>Segments, drivers and the story in the numbers.</p><div class="an">output: findings</div></div>
+      <div class="m"><div class="dot">05</div><h3>Recommend</h3><p>Clear next steps your leadership can act on.</p><div class="an">output: decision</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="s creative">
+  <div class="wrap">
+    <div>
+      <span class="badge">NO AI · 100% HUMAN-DESIGNED</span>
+      <h2>Creative Brand Development, <span class="sq">drawn by hand<svg viewBox="0 0 200 14" preserveAspectRatio="none" aria-hidden="true"><path d="M2 9 C 40 2, 70 13, 110 6 S 170 3, 198 8" fill="none" stroke="#FFE45C" stroke-width="3" stroke-linecap="round"/></svg></span>, not generated.</h2>
+      <p style="margin-top:22px">Logos, identities, packaging and print, made by our designers and shaped by what our research tells us about your customers.</p>
+      <div class="chips"><span>Logo &amp; Brand Identity</span><span>Corporate Identity</span><span>Packaging Design</span><span>Marketing Collateral</span><span>Flyers, Postcards &amp; Brochures</span></div>
+      <a class="cta" href="#">See creative services →</a>
+    </div>
+    <div class="sketch" aria-hidden="true">
+      <svg viewBox="0 0 300 200" fill="none" stroke="#C4C8CF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="20" y="30" width="120" height="140" rx="4" stroke-dasharray="5 5"/>
+        <circle cx="80" cy="85" r="30"/><path d="M58 85 Q80 55 102 85 Q80 115 58 85Z" stroke="#FF8FA0"/>
+        <path d="M45 135 H115 M55 148 H105"/>
+        <path d="M170 40 L280 40 L280 160 L170 160 Z"/><path d="M170 40 L200 20 L300 20 L280 40 M280 160 L300 140 L300 20"/>
+        <path d="M190 70 H260 M190 85 H245 M190 120 Q225 100 260 120" stroke="#FFE45C"/>
+      </svg>
+      <span class="cap">sample sketch · Apeiron to supply real work</span>
+    </div>
+  </div>
+</section>
+
+<section class="s" id="reports">
+  <div class="wrap verb">
+    <div class="quote">
+      <p class="eyebrow">Verbatim</p>
+      <p>“[Client testimonial to be supplied by Apeiron, with permission.]”</p>
+      <div class="who">[Name] · [Title] · [Company]</div>
+    </div>
+    <div>
+      <div class="shead" style="margin-bottom:18px"><h2 style="font-size:28px">Latest research insights</h2><a class="link" href="#">All insights →</a></div>
+      <div class="reports">
+        <a class="rep" href="#"><div class="vol"><span>INSIGHT</span><span>Market research</span></div><h3>The importance of market research for business expansion</h3><span class="cat">Read →</span></a>
+        <a class="rep" href="#"><div class="vol"><span>INSIGHT</span><span>Consumer research</span></div><h3>Singapore consumer behaviour: what market research reveals</h3><span class="cat">Read →</span></a>
+        <a class="rep" href="#"><div class="vol"><span>INSIGHT</span><span>Consulting</span></div><h3>Business growth strategy consulting for Singapore firms</h3><span class="cat">Read →</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="s" style="padding-top:0">
+  <div class="wrap">
+    <div class="shead"><div><p class="eyebrow">Sampling frame</p><h2>Where we work</h2></div></div>
+    <div class="locs">
+      <a class="loc" href="#"><div><h3>Singapore</h3><div class="co">1.29° N, 103.85° E · Head office</div></div><span class="link">Singapore →</span></a>
+      <a class="loc" href="#"><div><h3>Dubai, UAE</h3><div class="co">25.20° N, 55.27° E · Market research in Dubai</div></div><span class="link">Dubai →</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="s enq" id="enquiry">
+  <div class="wrap">
+    <div class="contact">
+      <p class="eyebrow">Final question</p>
+      <h2>Tell us what you need to know.</h2>
+      <p style="color:var(--ink-2);margin:16px 0 22px">Five short questions. A consultant replies within one working day.</p>
+      <p><b>Singapore:</b> [PHONE]</p>
+      <p><b>Dubai:</b> [UAE PHONE]</p>
+      <p style="margin-top:16px"><a class="btn-o" href="#">WhatsApp us</a></p>
+    </div>
+    <form class="form" id="form" novalidate>
+      <div class="prog"><i id="prog"></i></div>
+      <div class="in">
+        <label class="fq"><span class="q">Q1</span>Your name<input id="f-name" name="name" type="text" autocomplete="name"></label>
+        <label class="fq"><span class="q">Q2</span>Company<input id="f-company" name="company" type="text" autocomplete="organization"></label>
+        <label class="fq"><span class="q">Q3</span>Email<input id="f-email" name="email" type="email" autocomplete="email"></label>
+        <label class="fq"><span class="q">Q4</span>Service you need<select id="f-service" name="service"></select></label>
+        <label class="fq full"><span class="q">Q5</span>Your question<textarea id="f-q" name="question" rows="3"></textarea></label>
+        <div class="submit"><span class="t" id="ptext">0 of 5 answered</span><button type="submit">Submit response</button></div>
+        <div class="thanks" id="thanks">Thank you. This is a design preview, so nothing was sent.</div>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap cols">
+    <div><img src="../assets/apeiron-logo-dark-bg.png" alt="Apeiron Market Research &amp; Consulting" style="height:46px;margin-bottom:12px"><p style="margin:0;line-height:1.7">Independent market research and consulting for Singapore, Dubai and ASEAN.</p></div>
+    <div><h4>Services</h4><ul id="f-services"></ul></div>
+    <div><h4>Industries</h4><ul><li>Retail</li><li>FMCG</li><li>HORECA</li><li>Education</li><li>Tourism</li><li><a href="#industries">All 24 industries</a></li></ul></div>
+    <div><h4>Locations</h4><ul><li>Singapore</li><li>Dubai</li></ul></div>
+    <div><h4>Company</h4><ul><li>About</li><li>Case Studies</li><li>Careers</li><li>Contact</li><li>FAQ</li></ul></div>
+  </div>
+  <div class="wrap legal"><span>© Apeiron Market Research &amp; Consulting · [PHONE] · [EMAIL]</span><span>Privacy Policy</span></div>
+</footer>
+
+<script>
+(function(){
+  var GROUPS=[
+    {c:'S1',n:'Market Research & Insights',d:'Consumer research and surveys, competitor analysis, brand and product research, B2B studies and custom reports.',k:7},
+    {c:'S2',n:'Strategy, Feasibility & Growth',d:'Feasibility studies, ASEAN market entry, business plans and growth strategy.',k:5},
+    {c:'S3',n:'Ongoing Research Programmes',d:'Satisfaction tracking, mystery shopping, CX audits, reputation monitoring and employee surveys.',k:9},
+    {c:'S4',n:'Government Grants & Submissions',d:'EDGE grant research, EntrePass business plans, JTC submissions and other Singapore grants.',k:5},
+    {c:'S5',n:'Tourism, MICE & STB Grants',d:'Research for LEF, Kickstart Fund, ESF and BEiS applications, tourism feasibility and MICE studies.',k:6},
+    {c:'S6',n:'Creative Brand Development',d:'Logo, identity, packaging, collateral, flyers and brochures, made by our designers.',k:5,noai:true}
+  ];
+  var esc=function(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;')};
+  var idx=document.getElementById('index');
+  idx.innerHTML=GROUPS.map(function(g){
+    var bars='';for(var i=0;i<g.k;i++){bars+='<i style="height:'+(10+((i*7+g.k*3)%16))+'px"></i>'}
+    return '<a class="row" href="#"><span class="code">'+g.c+'</span><h3>'+esc(g.n)+(g.noai?'<span class="noai">NO AI</span>':'')+'</h3><span class="desc">'+esc(g.d)+'</span><span class="vis"><span class="bars">'+bars+'</span><span class="cnt">'+g.k+' services</span></span><span class="arr">→</span></a>';
+  }).join('');
+  document.getElementById('f-services').innerHTML=GROUPS.map(function(g){return '<li>'+esc(g.n)+'</li>'}).join('');
+  document.getElementById('f-service').innerHTML='<option value="">Choose a service</option>'+GROUPS.map(function(g){return '<option>'+esc(g.n)+'</option>'}).join('');
+
+  var OPTS=[
+    ['Is my idea or investment viable?','Before you commit money','Feasibility Study'],
+    ['Who are my customers and what do they want?','Surveys, segments, behaviour','Consumer Research & Surveys'],
+    ['Should we expand into a new market?','Singapore, ASEAN or Dubai','ASEAN Market Entry'],
+    ['Can we qualify for a government or STB grant?','EDGE, LEF, Kickstart, ESF, BEiS','Grants & STB Submissions'],
+    ['How are we performing over time?','Satisfaction, mystery shopping, tracking','Ongoing Research Programmes'],
+    ['We need a brand, logo or packaging','Designed by people, no AI','Creative Brand Development']
+  ];
+  var box=document.getElementById('opts');
+  box.innerHTML=OPTS.map(function(o,i){return '<label class="opt'+(i===0?' sel':'')+'"><input type="radio" name="q1" id="q1-'+i+'" value="'+i+'"'+(i===0?' checked':'')+'><span><span class="o1">'+esc(o[0])+'</span><br><span class="o2">'+esc(o[1])+'</span></span></label>'}).join('');
+  box.addEventListener('change',function(e){
+    var i=+e.target.value;
+    box.querySelectorAll('.opt').forEach(function(l,j){l.classList.toggle('sel',j===i)});
+    document.getElementById('rname').textContent=OPTS[i][2];
+  });
+
+  var EVENTS=[['Grand Prix Season Singapore','footfall · visitor survey',15],['LEGO® x BTS Pop-up','footfall · satisfaction',15],['Jam Off 2024','visitor profiling',15],['Singapore Vegan Festival','tourist vs local split',15],['Little India & Orchard Re-Route','real-time reporting',15],['[Next case study from Apeiron]','',0]];
+  function tally(n){
+    var s='',x=0,groups=Math.floor(n/5),rest=n%5;
+    for(var g=0;g<groups;g++){for(var k=0;k<4;k++){s+='<line x1="'+(x+k*7)+'" y1="3" x2="'+(x+k*7)+'" y2="25"/>'}s+='<line x1="'+(x-3)+'" y1="21" x2="'+(x+24)+'" y2="6"/>';x+=40}
+    for(var r=0;r<rest;r++){s+='<line x1="'+(x+r*7)+'" y1="3" x2="'+(x+r*7)+'" y2="25"/>'}
+    var w=Math.max(x+rest*7+4,10);
+    return '<svg viewBox="-4 0 '+(w+4)+' 28" width="'+(w+4)+'" stroke="#B01030" stroke-width="2.2" stroke-linecap="round" aria-hidden="true">'+s+'</svg>';
+  }
+  document.getElementById('notepad').innerHTML=EVENTS.map(function(e){
+    return '<div class="tal"><span class="ev">'+esc(e[0])+(e[1]?' <span class="w">· '+esc(e[1])+'</span>':'')+'</span>'+(e[2]?tally(e[2]):'<span class="w">to come</span>')+'</div>';
+  }).join('');
+
+  var IND=['Retail','FMCG','HORECA','Education','Tourism','Healthcare & Pharma','Real Estate','Manufacturing & Engineering','Banking & Finance','Logistics','Import & Export','HR & Recruitment','IT Services','Fashion & Clothing','Telecoms & Internet','Automobile','Aerospace','Electronics','Farming (Hydroponics)','Gaming','Construction Materials','Marinetech','Sports','Business Services'];
+  document.getElementById('heat').innerHTML=IND.map(function(n,i){return '<a class="cell '+(i<10?'c1':'c2')+'" href="#"><span class="n">'+(i<9?'0':'')+(i+1)+'</span><span>'+esc(n)+'</span></a>'}).join('');
+  document.getElementById('ind-menu').innerHTML=IND.map(function(n,i){return '<li'+(i<10?'':' class="sec"')+'>'+esc(n)+'</li>'}).join('');
+
+  // menu panels
+  var btns=document.querySelectorAll('[data-panel]');
+  function closeAll(){document.querySelectorAll('.panel').forEach(function(p){p.classList.remove('open')});btns.forEach(function(b){b.setAttribute('aria-expanded','false')})}
+  btns.forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();var p=document.getElementById(b.dataset.panel),open=p.classList.contains('open');closeAll();if(!open){p.classList.add('open');b.setAttribute('aria-expanded','true')}})});
+  document.addEventListener('click',function(e){if(!e.target.closest('.panel'))closeAll()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll()});
+  document.querySelectorAll('.panel a').forEach(function(a){a.addEventListener('click',closeAll)});
+
+  // survey form progress
+  var form=document.getElementById('form'),fields=['f-name','f-company','f-email','f-service','f-q'].map(function(id){return document.getElementById(id)});
+  function prog(){var n=fields.filter(function(f){return f.value.trim()}).length;document.getElementById('prog').style.width=(n*20)+'%';document.getElementById('ptext').textContent=n+' of 5 answered'}
+  form.addEventListener('input',prog);form.addEventListener('change',prog);
+  form.addEventListener('submit',function(e){e.preventDefault();document.getElementById('thanks').style.display='block'});
+  document.getElementById('rlink').addEventListener('click',function(){var v=document.getElementById('rname').textContent;var s=document.getElementById('f-service');var map={'Feasibility Study':1,'ASEAN Market Entry':1,'Consumer Research & Surveys':0,'Grants & STB Submissions':4,'Ongoing Research Programmes':2,'Creative Brand Development':5};s.selectedIndex=(map[v]||0)+1;prog()});
+})();
+</script>
+</body>
+</html>
